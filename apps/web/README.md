@@ -41,4 +41,6 @@ Após a previsão, a interface consulta `GET /motors/{model_id}` para buscar fab
 
 Para verificar a integração com dados sintéticos, capture ou escolha uma imagem de `ComputerVisionPython/dataset/raw/`. A tela deve mostrar o estado da identificação, candidatos `demo-*` e, se o catálogo tiver o ID candidato, seus dados técnicos. Para verificar indisponibilidade, pare a API e envie novamente. A seleção manual deve continuar funcionando.
 
-O Vite encaminha `/predict`, `/motors` e `/health` para `http://127.0.0.1:8000` em desenvolvimento. Se a API estiver em outro endereço, defina `$env:MFI_API_TARGET` antes de iniciar o Vite. Ao servir `dist/` em produção, configure esses caminhos como proxy para a API na mesma origem. A câmera precisa de HTTPS em dispositivos móveis (localhost é permitido no próprio computador).
+O Vite encaminha `/predict`, `/motors` e `/health` para `https://mfi-a5su.onrender.com` em desenvolvimento. Para usar uma API local, defina `$env:MFI_API_TARGET = 'http://127.0.0.1:8000'` antes de iniciar o Vite. Em produção, `vercel.json` encaminha esses mesmos caminhos para o Render sem expor chamadas cross-origin ao navegador. A câmera precisa de HTTPS em dispositivos móveis (localhost é permitido no próprio computador).
+
+Depois do deploy, abra `/health` no domínio da aplicação para conferir se a API está alcançável através do rewrite. O retorno deve ser `status: "ok"`, com `classifier_ready` e `catalog_ready` como `true`; caso contrário, confira o checkpoint `MFI_CHECKPOINT` e a conexão com o banco na API hospedada.

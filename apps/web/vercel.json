@@ -1,0 +1,21 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "rewrites": [
+    {
+      "source": "/predict",
+      "destination": "https://mfi-a5su.onrender.com/predict"
+    },
+    {
+      "source": "/motors",
+      "destination": "https://mfi-a5su.onrender.com/motors"
+    },
+    {
+      "source": "/motors/:path*",
+      "destination": "https://mfi-a5su.onrender.com/motors/:path*"
+    },
+    {
+      "source": "/health",
+      "destination": "https://mfi-a5su.onrender.com/health"
+    }
+  ]
+}

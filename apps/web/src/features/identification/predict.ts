@@ -74,7 +74,7 @@ export async function predictPhoto(photo: File): Promise<Prediction> {
   const result: unknown = await response.json().catch(() => null)
   if (!response.ok) {
     const detail = record(result) && typeof result.detail === 'string' ? result.detail : null
-    throw new Error(detail || 'A API de identificação está indisponível. Tente novamente.')
+    throw new Error(detail || `A API respondeu com HTTP ${response.status}. Confira o deploy e o encaminhamento da API.`)
   }
   if (!isPrediction(result)) {
     throw new Error('A API retornou uma previsão inválida.')
@@ -94,7 +94,7 @@ export async function getMotorDetails(modelId: string): Promise<MotorDetails> {
   const result: unknown = await response.json().catch(() => null)
   if (!response.ok) {
     const detail = record(result) && typeof result.detail === 'string' ? result.detail : null
-    throw new Error(detail || 'A API não encontrou este modelo no catálogo.')
+    throw new Error(detail || `O catálogo respondeu com HTTP ${response.status}.`)
   }
   if (!record(result) || typeof result.model_id !== 'string'
     || typeof result.manufacturer !== 'string' || typeof result.product_line !== 'string'

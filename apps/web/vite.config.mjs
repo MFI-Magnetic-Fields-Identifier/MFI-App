@@ -1,13 +1,15 @@
 import react from '@vitejs/plugin-react'
 import { defineConfig } from 'vite'
 
+const apiTarget = process.env.MFI_API_TARGET || 'https://mfi-a5su.onrender.com'
+
 export default defineConfig({
   plugins: [react()],
   server: {
     proxy: {
-      '^/predict$': process.env.MFI_API_TARGET || 'http://127.0.0.1:8000',
-      '^/motors(?:/.*)?$': process.env.MFI_API_TARGET || 'http://127.0.0.1:8000',
-      '^/health$': process.env.MFI_API_TARGET || 'http://127.0.0.1:8000',
+      '^/predict$': apiTarget,
+      '^/motors(?:/.*)?$': apiTarget,
+      '^/health$': apiTarget,
     },
   },
 })
