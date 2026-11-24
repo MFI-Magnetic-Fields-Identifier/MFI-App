@@ -1,0 +1,16 @@
+[
+  {
+    "id": "demo-monofasico",
+    "name": "Indução monofásica",
+    "phases": 1,
+    "frequencyHz": 60,
+    "poles": 4
+  },
+  {
+    "id": "demo-trifasico",
+    "name": "Indução trifásica",
+    "phases": 3,
+    "frequencyHz": 60,
+    "poles": 6
+  }
+]

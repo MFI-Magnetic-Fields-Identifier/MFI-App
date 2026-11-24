@@ -1,0 +1,38 @@
+# Arquivos gerados pelo Unity
+[Ll]ibrary/
+[Tt]emp/
+[Oo]bj/
+[Bb]uild/
+[Bb]uilds/
+[Ll]ogs/
+[Uu]ser[Ss]ettings/
+
+# IDEs
+.vs/
+.vscode/
+.idea/
+*.csproj
+*.sln
+*.suo
+*.user
+
+# Sistema
+.DS_Store
+Thumbs.db
+
+# Python
+__pycache__/
+.venv/
+*.pyc
+
+# Fotografias locais do projeto
+/fotos/
+
+# Segredos
+.env
+.env.*
+!.env.example
+
+# Arquivos temporários
+*.tmp
+*.log

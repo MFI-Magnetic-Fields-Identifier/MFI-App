@@ -1,0 +1,6 @@
+/.pytest_cache/
+*.egg-info/
+/dist/
+/dataset/
+/models/
+/mfi_cv.sqlite3*
